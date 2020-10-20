@@ -79,17 +79,18 @@ var instructTimeThresh = 0 ///in seconds
 // task specific variables
 // Set up task variables
 var responses = [37, 38, 39, 40]
-var blocks = ['simple'] //Simple: 1 dimension alone, separate: 2 dimensions side-by-side, compound: overlapping
+var blocks = ['simple', 'separate', 'compound', 'ID', 'ED'] //Simple: 1 dimension alone, separate: 2 dimensions side-by-side, compound: overlapping
+//'simple'
 //'separate', 'compound', 'ID', 'ED'
-var stages = ['simple', 'simple_rev']
+var stages = ['simple', 'simple_rev', 'separate', 'compound', 'compound_rev', 'ID', 'ID_rev', 'ED', 'ED_rev']
 
-// ,'separate', 'compound', 'compound_rev', 'ID', 'ID_rev', 'ED', 'ED_rev'
+// 'simple', 'simple_rev', 'separate', 'compound', 'compound_rev', 'ID', 'ID_rev', 'ED', 'ED_rev'
 
 // Set up variables for stimuli
 var path = 'images/'
 var center_prefix = '<div class = centerimg><img style="height: 80%; width: auto; '
-var left_prefix = '<div class = leftimg><img style="height: 80%; width: auto; '
-var right_prefix = '<div class = rightimg><img style="height: 80%; width: auto; '
+var left_prefix = '<div class = leftimg><img style="height: 60%; width: auto; '
+var right_prefix = '<div class = rightimg><img style="height: 60%; width: auto; '
 var postfix = '"</img></div>'
 var shape_stim = jsPsych.randomization.shuffle(['Animal_9.png', 'Animal_10.png', 'Animal_11.png',
 	'Animal_12.png', 'Animal_13.png', 'Animal_14.png', 'Animal_15.png', 'Animal_16.png'
@@ -266,10 +267,10 @@ var define_compound_stims = {
 		trial_id: "define_compound_stims"
 	},
 	func: function() {
-		var Dim1_stim1 = center_prefix + Dim1_z + path + Dim1_stim[0] + postfix
-		var Dim1_stim2 = center_prefix + Dim1_z + path + Dim1_stim[1] + postfix
-		var Dim2_stim1 = center_prefix + Dim2_z + path + Dim2_stim[0] + postfix
-		var Dim2_stim2 = center_prefix + Dim2_z + path + Dim2_stim[1] + postfix
+		var Dim1_stim1 = left_prefix + Dim1_z + path + Dim1_stim[0] + postfix
+		var Dim1_stim2 = left_prefix + Dim1_z + path + Dim1_stim[1] + postfix
+		var Dim2_stim1 = right_prefix + Dim2_z + path + Dim2_stim[0] + postfix
+		var Dim2_stim2 = right_prefix + Dim2_z + path + Dim2_stim[1] + postfix
 		stims = [Dim1_stim1, Dim1_stim2, Dim2_stim1, Dim2_stim2]
 	},
 	timing_post_trial: 0
@@ -281,10 +282,10 @@ var define_ID_stims = {
 		trial_id: "define_ID_stims"
 	},
 	func: function() {
-		var Dim1_stim1 = center_prefix + Dim1_z + path + Dim1_stim[2] + postfix
-		var Dim1_stim2 = center_prefix + Dim1_z + path + Dim1_stim[3] + postfix
-		var Dim2_stim1 = center_prefix + Dim2_z + path + Dim2_stim[2] + postfix
-		var Dim2_stim2 = center_prefix + Dim2_z + path + Dim2_stim[3] + postfix
+		var Dim1_stim1 = left_prefix + Dim1_z + path + Dim1_stim[2] + postfix
+		var Dim1_stim2 = left_prefix + Dim1_z + path + Dim1_stim[3] + postfix
+		var Dim2_stim1 = right_prefix + Dim2_z + path + Dim2_stim[2] + postfix
+		var Dim2_stim2 = right_prefix + Dim2_z + path + Dim2_stim[3] + postfix
 		stims = [Dim1_stim1, Dim1_stim2, Dim2_stim1, Dim2_stim2]
 	},
 	timing_post_trial: 0
@@ -296,10 +297,10 @@ var define_ED_stims = {
 		trial_id: "define_ED_stims"
 	},
 	func: function() {
-		var Dim1_stim1 = center_prefix + Dim1_z + path + Dim1_stim[4] + postfix
-		var Dim1_stim2 = center_prefix + Dim1_z + path + Dim1_stim[5] + postfix
-		var Dim2_stim1 = center_prefix + Dim2_z + path + Dim2_stim[4] + postfix
-		var Dim2_stim2 = center_prefix + Dim2_z + path + Dim2_stim[5] + postfix
+		var Dim1_stim1 = left_prefix + Dim1_z + path + Dim1_stim[4] + postfix
+		var Dim1_stim2 = left_prefix + Dim1_z + path + Dim1_stim[5] + postfix
+		var Dim2_stim1 = right_prefix + Dim2_z + path + Dim2_stim[4] + postfix
+		var Dim2_stim2 = right_prefix + Dim2_z + path + Dim2_stim[5] + postfix
 		stims = [Dim2_stim1, Dim2_stim2, Dim1_stim1, Dim1_stim2]
 	},
 	timing_post_trial: 0
