@@ -79,10 +79,11 @@ var instructTimeThresh = 0 ///in seconds
 // task specific variables
 // Set up task variables
 var responses = [37, 38, 39, 40]
-var blocks = ['simple', 'separate', 'compound', 'ID', 'ED'] //Simple: 1 dimension alone, separate: 2 dimensions side-by-side, compound: overlapping
-var stages = ['simple', 'simple_rev', 'separate', 'compound', 'compound_rev', 'ID', 'ID_rev', 'ED',
-	'ED_rev'
-]
+var blocks = ['simple'] //Simple: 1 dimension alone, separate: 2 dimensions side-by-side, compound: overlapping
+//'separate', 'compound', 'ID', 'ED'
+var stages = ['simple', 'simple_rev']
+
+// ,'separate', 'compound', 'compound_rev', 'ID', 'ID_rev', 'ED', 'ED_rev'
 
 // Set up variables for stimuli
 var path = 'images/'
@@ -90,11 +91,11 @@ var center_prefix = '<div class = centerimg><img style="height: 80%; width: auto
 var left_prefix = '<div class = leftimg><img style="height: 80%; width: auto; '
 var right_prefix = '<div class = rightimg><img style="height: 80%; width: auto; '
 var postfix = '"</img></div>'
-var shape_stim = jsPsych.randomization.shuffle(['Shape_1.png', 'Shape_2.png', 'Shape_3.png',
-	'Shape_4.png', 'Shape_5.png', 'Shape_6.png', 'Shape_7.png', 'Shape_8.png'
+var shape_stim = jsPsych.randomization.shuffle(['Animal_9.png', 'Animal_10.png', 'Animal_11.png',
+	'Animal_12.png', 'Animal_13.png', 'Animal_14.png', 'Animal_15.png', 'Animal_16.png'
 ])
-var line_stim = jsPsych.randomization.shuffle(['Line_1.png', 'Line_2.png', 'Line_3.png',
-	'Line_4.png', 'Line_5.png', 'Line_6.png', 'Line_7.png', 'Line_8.png'
+var line_stim = jsPsych.randomization.shuffle(['Animal_1.png', 'Animal_2.png', 'Animal_3.png',
+	'Animal_4.png', 'Animal_5.png', 'Animal_6.png', 'Animal_7.png', 'Animal_8.png'
 ])
 if (Math.random() < 0.5) {
 	var Dim1_stim = shape_stim
@@ -150,15 +151,14 @@ var post_task_block = {
    data: {
        trial_id: "post task questions"
    },
-   questions: ['<p class = center-block-text style = "font-size: 20px">Please summarize what you were asked to do in this task.</p>',
-              '<p class = center-block-text style = "font-size: 20px">Do you have any comments about this task?</p>'],
+	questions: ['<p class = center-block-text style = "font-size: 20px">Кратко опишите, что вас просили сделать в этой задаче.</p>',
+				'<p class = center-block-text style = "font-size: 20px">Есть ли у вас комментарии по поводу этой задачи?</p>'],
    rows: [15, 15],
    columns: [60,60]
 };
 
 /* define static blocks */
-var feedback_instruct_text =
-	'Welcome to the experiment. This experiment will last around 10 minutes. Press <strong>enter</strong> to begin.'
+var feedback_instruct_text = 'Добро пожаловать. Нажмите <strong>Enter</strong>, чтобы начать.';
 var feedback_instruct_block = {
 	type: 'poldrack-text',
 	data: {
@@ -176,10 +176,10 @@ var instructions_block = {
 		trial_id: 'instruction'
 	},
 	pages: [
-		'<div class = centerbox><p class = "block-text">In this task you will see two patterns placed in two of four boxes on the screen (shown on the next screen). One of the patterns is correct. You must select the one you think is correct by pressing the arrow key corresponding to the correct box (left, right, up or down).</p><p class = "block-text">There is a rule you can follow to make sure you make the correct choice each time. The computer will be keeping track of how well you arc doing and when it is clear that you know the rule then the computer will change, but this not happen very often. To begin with, there is nothing on the screen to tell you which of the two patterns is correct, so your first choice will be a simple guess. However, the computer will give a message after each attempt to tell you whether you are right or wrong. </p></div>',
+		'<div class = centerbox><p class = "block-text">В этом задании ты увидишь две картинки животных, помещенных в два из четырех окошек на экране. Компьютер загадал одного из них, а тебе нужно угадать, кого именно. Для этого нажимай на клавиатуре кнопку со стрелкой, соответствующую окошку, в котором находится выбранное тобой животное (влево, вправо, вверх или вниз).</p><p class = "block-text">Если ты правильно выбрал животное и окошко, в котором оно сейчас появилось, компьютер ответит “Верно”, если загаданное им животное в другом окошке, ответит “Неверно”. Животные могут перемещаться в разные окошки, поэтому старайся понять какое же животное загадал компьютер. Когда компьютеру станет ясно, что ты знаешь, кого он загадал, компьютер выберет другое животное, поэтому следи за его ответами в центре.</p></div>',
 		instruction_stim +
-		'<div class = betweenStimBox><div class = "center-text">An example trial.</div></div>',
-		'<div class = centerbox><p class = "block-text">Once again, you will see two patterns similar to what you saw on the last page. One of the patterns is correct. You select a pattern by pressing the corresponding arrow key. After you respond you will get feedback about whether you were correct. After the computer knows that you have learned the rule, the rule will change. </p></div>'
+		'<div class = betweenStimBox><div class = "center-text">Пример.</div></div>',
+		'<div class = centerbox><p class = "block-text">Еще раз, если ты правильно выбрал животное и окошко, в котором оно сейчас появилось, компьютер ответит “Верно”, если загаданное им животное в другом окошке, ответит “Неверно”. Когда компьютеру станет ясно, что ты знаешь, кого он загадал, компьютер выберет другое животное, поэтому следи за его ответами в центре.</p></div>'
 	],
 	allow_keys: false,
 	show_clickable_nav: true,
@@ -214,7 +214,7 @@ var end_block = {
 		trial_id: "end",
 		exp_id: 'dimensional_set_shifting'
 	},
-	text: '<div class = centerbox><p class = "center-block-text">Thanks for completing this task!</p><p class = "center-block-text>Press <strong>enter</strong> to continue.</p></div>',
+	text: '<div class = centerbox><p class = "center-block-text">Спасибо! Нажмите <strong>Enter</strong>, чтобы продолжить.</p></div>',
 	cont_key: [13],
 	timing_post_trial: 0
 };
@@ -316,6 +316,18 @@ var reverse_stims = {
 	timing_post_trial: 0
 }
 
+var outro_test_block = {
+	type: 'poldrack-text',
+	is_html: true,
+	data: {
+		trial_id: "test_outro"
+	},
+	timing_stim: 2000,
+	timing_response: 2000,
+	timing_post_trial: 0,
+	text: '<div class = centerbox><div class="img-container"><img src="images/outro.jpg" alt="Молодец"></div></div>',
+};
+
 /* create experiment definition array */
 dimensional_set_shifting_experiment = []
 dimensional_set_shifting_experiment.push(instruction_node)
@@ -339,8 +351,8 @@ for (b = 0; b < blocks.length; b++) {
 		stimulus: get_stim,
 		is_html: true,
 		key_answer: get_correct_response,
-		correct_text: '<div class = centerbox><div class = "center-text"><font size = 20>Correct</font></div></div>',
-		incorrect_text: '<div class = centerbox><div class = "center-text"><font size = 20>Incorrect</font></div></div>',
+		correct_text: '<div class = centerbox><div class = "center-text"><font size = 20>Верно</font></div></div>',
+		incorrect_text: '<div class = centerbox><div class = "center-text"><font size = 20>Неверно</font></div></div>',
 		choices: responses,
 		timing_response: -1,
 		timing_stim: -1,
@@ -381,6 +393,6 @@ for (b = 0; b < blocks.length; b++) {
 		dimensional_set_shifting_experiment.push(stage_node)
 	}
 }
-
+dimensional_set_shifting_experiment.push(outro_test_block)
 dimensional_set_shifting_experiment.push(post_task_block)
 dimensional_set_shifting_experiment.push(end_block)

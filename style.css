@@ -1,12 +1,11 @@
 .display_stage {
     position: fixed;
-    background: black;
+    background: white;
     left: 5vw;
     top: 2vh;
     height: 94vh;
     width: 90vw;
     border-radius: 15px;
-    border: 1vh solid #D0D0D0;
     z-index: 0;
 }
 
@@ -40,10 +39,10 @@
   left:50%;
   margin-right:-50%;
   transform: translate(-50%,-170%);
-  background-color: black;
+  background-color: #dedede;
   border-style: solid;
   border-width: 3px;
-  border-color: white;
+  border-color: black;
 }
 
 .bottombox {
@@ -54,11 +53,10 @@
   left:50%;
   margin-right:-50%;
   transform: translate(-50%,70%);
-  background-color: black;
+  background-color: #dedede;
   border-style: solid;
   border-width: 3px;
-  border-color: white;
-
+  border-color: black;
 }
 
 .leftbox {
@@ -66,14 +64,13 @@
   height: 20vh;
   position:absolute;
   top:50%;
-  left:50%;
+  left:51%;
   margin-right:-50%;
   transform: translate(-170%,-50%);
-  background-color: black;
+  background-color: #dedede;
   border-style: solid;
   border-width: 3px;
-  border-color: white;
-
+  border-color: black;
 }
 
 .rightbox {
@@ -81,13 +78,13 @@
   height: 20vh;
   position:absolute;
   top:50%;
-  left:50%;
+  left:49%;
   margin-right:-50%;
   transform: translate(70%,-50%);
-  background-color: black;
+  background-color: #dedede;
   border-style: solid;
   border-width: 3px;
-  border-color: white;
+  border-color: black;
 }
 
 .centerimg {
@@ -130,5 +127,5 @@
 }
 
 .display_stage > div, .display_stage > p {
-  color: white;
+  color: black;
 }
